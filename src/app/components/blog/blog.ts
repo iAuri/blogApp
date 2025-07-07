@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { INoticias } from '../../interfaces/inoticias.interface';
 
 @Component({
   selector: 'app-blog',
@@ -9,3 +10,4 @@ import { Component } from '@angular/core';
 export class Blog {
 
 }
+
