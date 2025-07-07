@@ -35,7 +35,26 @@ export class Blog {
     }
   ]
 
+  //Función que pinta las noticias en el HTML
+  publicar(): void {
+    const { titulo, imagen, cuerpo, fecha } = this.nuevaNoticia;
 
+    if (!titulo || !imagen || !cuerpo || !fecha) {
+      alert('Por favor, completa todos los campos antes de publicar.');
+      return;
+    }
+
+    // crear una nueva noticia y agregarla al inicio del array de noticias
+    // usando el operador spread para evitar mutar el objeto original
+    this.noticias.unshift({ ...this.nuevaNoticia });
+
+    // Limpiar el formulario
+    this.nuevaNoticia = {
+      titulo: '',
+      imagen: '',
+      cuerpo: '',
+      fecha: ''
+    };
+  }
 
 }
-
