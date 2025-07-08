@@ -1,5 +1,5 @@
 <!-- Formulario para agregar titulo, img, cuerpo y fecha de la noticia y cuando le de a clic() se publique -->
-<div>
+<div class="container-form">
 <form>
   <label for="titulo">Título:</label>
   <input [(ngModel)]="nuevaNoticia.titulo" type="text" id="titulo"  name="titulo" required>
@@ -11,7 +11,7 @@
   <textarea [(ngModel)]="nuevaNoticia.cuerpo" id="cuerpo"  name="cuerpo" required></textarea>
 
   <label for="fecha">Fecha:</label>
-  <input [(ngModel)]="nuevaNoticia.fecha" type="date" id="fecha"  name="fecha" required>
+  <input [(ngModel)]="nuevaNoticia.fecha" type="date" id="fecha" name="fecha" required [max]="maxFecha">
 
   <button type="button" (click)="publicar()" >Publicar Noticia</button>
 </form>
@@ -19,7 +19,7 @@
 
 
 <!-- Listado de noticias -->
-<div class="container">
+<div class="container-noticia">
   <h2>Listado de noticias</h2>
   <div *ngFor="let noticia of noticias" class="noticia">
     <h3>{{ noticia.titulo }}</h3>

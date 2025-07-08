@@ -35,6 +35,9 @@ export class Blog {
     }
   ]
 
+  //Fecha máxima para el input de fecha, se establece como la fecha actual
+  maxFecha: string = new Date().toISOString().split('T')[0];
+
   //Función que pinta las noticias en el HTML
   publicar(): void {
     const { titulo, imagen, cuerpo, fecha } = this.nuevaNoticia;
@@ -43,6 +46,12 @@ export class Blog {
       alert('Por favor, completa todos los campos antes de publicar.');
       return;
     }
+
+    // Validar que la fecha no sea mayor a hoy
+    if (fecha > this.maxFecha) {
+          alert('La fecha no puede ser mayor a hoy.');
+          return;
+        }
 
     // crear una nueva noticia y agregarla al inicio del array de noticias
     // usando el operador spread para evitar mutar el objeto original
